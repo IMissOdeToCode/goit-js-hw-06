@@ -12,3 +12,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+// <li><img src="" alt=""></li>
+const refs = {
+  ul: document.querySelector('.gallery'),
+};
+
+const getItemTemplate = (url, alt) =>
+  `<li><img class="item" src="${url}" alt="${alt}"></li>`;
+
+const templatesArr = images.map((image) =>
+  getItemTemplate(image.url, image.alt)
+);
+
+refs.ul.insertAdjacentHTML('beforeend', templatesArr.join(''));
+refs.ul.classList.add('test-class');
